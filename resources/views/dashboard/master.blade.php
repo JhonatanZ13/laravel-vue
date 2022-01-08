@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,14 +19,23 @@
     <script src="https://cdn.ckeditor.com/ckeditor5/31.1.0/classic/ckeditor.js"></script>
     <script src="{{asset("js/app.js")}}"></script>
     <script>
-        ClassicEditor
+        $(document).ready(function(){
+            $(document).on('click','.modal_delete', function(){
+                let id = $(this).attr('data-id');
+                $('#deleteModalLabel').html('Eliminar el USUARIO: '+id);
+                let action = $('#form_delete').attr('data-action').slice(0,-1);
+                $('#form_delete').attr('action', action + id)
+            });
+            ClassicEditor
                 .create( document.querySelector( '#contenido' ) )
                 .then( editor => {
                         console.log( editor );
                 } )
                 .catch( error => {
-                        console.error( error );
-                } );
+                        console.log( '' );
+            } );
+        });
+
     </script>
 </body>
 </html>

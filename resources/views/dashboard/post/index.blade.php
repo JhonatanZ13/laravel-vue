@@ -68,16 +68,4 @@
       </div>
     </div>
 </div>
-
-<script>
-    $(document).ready(function(){
-        $(document).on('click','.modal_delete', function(){
-            let id = $(this).attr('data-id');
-            $('#deleteModalLabel').text('Eliminar el POST: '+id);
-            let action = $('#form_delete').attr('data-action').slice(0,-1);
-            $('#form_delete').attr('action', action + id)
-            console.log(action)
-        });
-    });
-</script>
 @endsection
